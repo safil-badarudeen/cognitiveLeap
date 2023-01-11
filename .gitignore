@@ -1,0 +1,14 @@
+/congnitiveLeap/node_modules/
+/congnitiveLeap/.expo/
+/congnitiveLeap/dist/
+/congnitiveLeap/npm-debug.*
+/congnitiveLeap/*.jks
+/congnitiveLeap/*.p8
+/congnitiveLeap/*.p12
+/congnitiveLeap/*.key
+/congnitiveLeap/*.mobileprovision
+/congnitiveLeap/*.orig.*
+/congnitiveLeap/web-build/
+
+# macOS
+/congnitiveLeap/.DS_Store
