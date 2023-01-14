@@ -10,5 +10,9 @@
 /congnitiveLeap/*.orig.*
 /congnitiveLeap/web-build/
 
+/backend/node_modules/
+/backend/.env/
+
+
 # macOS
 /congnitiveLeap/.DS_Store
