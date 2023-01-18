@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const englishAlphabetSchema = new mongoose.Schema(
   {
     key: {
-      type: String,
+      type: Number,
       trim: true,
     },
     text:{
@@ -18,11 +18,11 @@ const englishAlphabetSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    wordAudio: {
+    textAudio: {
       type: String,
       required: true,
     },
-    StoryAudio: {
+    storyAudio: {
       type: String,
       required: true,
     },

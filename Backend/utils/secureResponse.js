@@ -1,7 +1,7 @@
 const secureResponse = (data)=>{
     return {
         userId:data._id,
-        username:data.username,
+        username:data.name,
         mobile :data.mobile
     }
 }

@@ -32,6 +32,12 @@ adminSchema.pre('save', async function(next) {
 });
 
 
+adminSchema.methods.comparePassword=function(candidatePassword){
+  const isMatch= bcrypt.compareSync(candidatePassword,this.password)
+  return isMatch
+}
+
+
 
 
 module.exports = mongoose.model("Admin", adminSchema);
