@@ -16,6 +16,7 @@ const englishAlphabetSchema = new mongoose.Schema(
     },
     image: {
       type: String,
+      required: true,
     },
     wordAudio: {
       type: String,

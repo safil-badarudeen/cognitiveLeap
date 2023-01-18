@@ -10,23 +10,30 @@ const connect = require('./db/connect');
 // packages
 const morgan = require('morgan')
 
+//routes
+const adminRouter = require('./routes/adminRoute')
+
 
 
 //body parser middleware
 app.use(express.json())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
+app.use('/api/v1/auth',adminRouter)
+
 const notFoundMiddleware = require('./middleware/notFound')
 const errorHandlerMiddleware = require('./middleware/ErrorHandler')
 
+app.get('/',(req,res)=> (
+  res.send('hello world')))
 
 
+  
 //error middleware
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 
-app.get('/',(req,res)=> (
- res.send('hello world')))
+
 
 
  const start = async()=>{
