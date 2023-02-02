@@ -22,6 +22,10 @@ const englishAlphabetSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    uid:{
+      type:  String,
+      required: true,
+    },
     storyAudio: {
       type: String,
       required: true,

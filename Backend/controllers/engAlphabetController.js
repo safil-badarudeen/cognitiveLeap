@@ -46,6 +46,17 @@ const getAllAlphabet = async (req, res) => {
   }
 };
 
+const getOneAlphabet =async(req,res)=> {
+  try{
+     const { id} = req.params
+     const alphabet = await EnglishAlphabet.findOne({uid: id})
+    //  if(!alphabet){}
+     res.status(StatusCodes.OK).json(alphabet);
+  }catch(err){
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: err });
+  }
+}
+
 //update the alphabet
 const updateAlphabet = async (req, res) => {
   try {
@@ -74,4 +85,4 @@ const updateAlphabet = async (req, res) => {
   }
 };
 
-module.exports = { createAlphabet, getAllAlphabet, updateAlphabet };
+module.exports = { createAlphabet, getAllAlphabet, updateAlphabet , getOneAlphabet };
