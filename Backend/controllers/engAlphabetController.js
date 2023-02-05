@@ -53,7 +53,7 @@ const getOneAlphabet =async(req,res)=> {
      console.log(id)
      const alphabet = await EnglishAlphabet.findOne({uid: id})
       if(!alphabet){
-        console.log("cannot find it")
+        res.status(StatusCodes.BAD_REQUEST).json({msg:"cannot find alphabet"})
       }
      res.status(StatusCodes.OK).json(alphabet);
   }catch(err){
