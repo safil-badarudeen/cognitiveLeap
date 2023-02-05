@@ -4,8 +4,8 @@ const { StatusCodes } = require("http-status-codes");
 
 const createAlphabet = async (req, res) => {
   try {
-    const { key, text, storyText, image, storyAudio, textAudio } = req.body;
-    if (!key || !text || !storyText || !storyAudio || !textAudio || !image) {
+    const { key, text, storyText, image, storyAudio, textAudio,uid } = req.body;
+    if (!key || !text || !storyText || !storyAudio || !textAudio || !image || !uid) {
       throw new CustomError.BadRequestError(
         "Enter every field to create an item"
       );
@@ -27,6 +27,7 @@ const createAlphabet = async (req, res) => {
       image,
       storyAudio,
       textAudio,
+      uid
     });
 
     newAlphabet.save();
@@ -49,8 +50,11 @@ const getAllAlphabet = async (req, res) => {
 const getOneAlphabet =async(req,res)=> {
   try{
      const { id} = req.params
+     console.log(id)
      const alphabet = await EnglishAlphabet.findOne({uid: id})
-    //  if(!alphabet){}
+      if(!alphabet){
+        console.log("cannot find it")
+      }
      res.status(StatusCodes.OK).json(alphabet);
   }catch(err){
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: err });
