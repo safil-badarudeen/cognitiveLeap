@@ -64,7 +64,7 @@ const getOneAlphabet =async(req,res)=> {
 //update the alphabet
 const updateAlphabet = async (req, res) => {
   try {
-    const { key, text, textAudio, storyText, storyAudio } = req.body;
+    const { key, text, textAudio, storyText, storyAudio,uid,image } = req.body;
 
     const duplicateKey = await EnglishAlphabet.find({ key: key });
     if (duplicateKey.length !== 0) {
@@ -77,6 +77,9 @@ const updateAlphabet = async (req, res) => {
     if (textAudio) update.textAudio = textAudio;
     if (storyText) update.storyText = storyText;
     if (storyAudio) update.storyAudio = storyAudio;
+    if (uid) update.uid = uid;
+    if (image) update.image = image;
+
 
     const updatedItem = await EnglishAlphabet.findOneAndUpdate(
       { _id: req.params.id },
